@@ -13,12 +13,12 @@ var c, python, java = true, false, "no!"
 const Pi = 3.14
 
 const (
-	Big = 1<<100
-	Small = Big>>99
+	Big   = 1 << 100
+	Small = Big >> 99
 )
 
 // Declaracion de funciones
-func add( x, y int ) int {
+func add(x, y int) int {
 	return x + y
 }
 
@@ -28,7 +28,7 @@ type Vertex struct {
 	Y int
 }
 
-func main() {
+func experimental() {
 
 	// Declaracion de vaiables corta
 	typescript, javascript, kevinscript := true, false, "yes!"
