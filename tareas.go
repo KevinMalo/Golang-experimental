@@ -6,12 +6,12 @@ type taskList struct {
 	tasks []*task
 }
 
-func ( t *taskList ) agregarALista( tl *task ) {
-	t.tasks = append( t.tasks, tl )
+func (t *taskList) agregarALista(tl *task) {
+	t.tasks = append(t.tasks, tl)
 }
 
-func ( t *taskList ) eliminarDeLista( index int) {
-	t.tasks = append( t.tasks[:index], t.tasks[index+1:]... )
+func (t *taskList) eliminarDeLista(index int) {
+	t.tasks = append(t.tasks[:index], t.tasks[index+1:]...)
 }
 
 type task struct {
@@ -30,6 +30,22 @@ func (t *task) actualizarDescripcion(descripcion string) {
 
 func (t *task) actualizarNombre(nombre string) {
 	t.nombre = nombre
+}
+
+func ( t *taskList ) imprimirLista() {
+	for _, tarea := range t.tasks{
+		fmt.Println( "Nombre", tarea.nombre )
+		fmt.Println( "Descriptcion", tarea.descripcion )
+	}
+}
+
+func ( t *taskList ) imprimirListaCompletadas() {
+	for _, tarea := range t.tasks{
+		if tarea.completado == true {
+			fmt.Println( "Nombre", tarea.nombre )
+			fmt.Println( "Descriptcion", tarea.descripcion )
+		}
+	}
 }
 
 func main() {
@@ -60,10 +76,38 @@ func main() {
 		},
 	}
 
-	fmt.Println( lista.tasks[0] )
 	lista.agregarALista(t4)
-	fmt.Println( len(lista.tasks) )
-	lista.eliminarDeLista(1)
-	fmt.Println( len(lista.tasks) )
+	lista.imprimirLista()
+	lista.tasks[0].marcarCompetla()
+	fmt.Println("Tareas completadas")
+	lista.imprimirListaCompletadas()
+
+	// for i := 0; i < len(lista.tasks); i++ {
+	// 	fmt.Println( "Index", i, "Nombre", lista.tasks[i].nombre )
+	// }
+
+	// for index, tarea := range lista.tasks {
+	// 	fmt.Println("Index", index, "Nombre", tarea.nombre)
+	// }
+
+	// Uso de break
+	// for i := 0; i < 10; i++ {
+		
+	// 	if i == 5 {
+	// 		break
+	// 	}
+	// 	fmt.Println(i)
+
+	// }
+
+	// Uso de continue
+	// for i := 0; i < 10; i++ {
+		
+	// 	if i == 5 {
+	// 		continue
+	// 	}
+	// 	fmt.Println(i)
+		
+	// }
 
 }
