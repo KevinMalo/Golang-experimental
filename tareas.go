@@ -77,10 +77,35 @@ func main() {
 	}
 
 	lista.agregarALista(t4)
-	lista.imprimirLista()
+	// lista.imprimirLista()
 	lista.tasks[0].marcarCompetla()
-	fmt.Println("Tareas completadas")
-	lista.imprimirListaCompletadas()
+	// fmt.Println("Tareas completadas")
+	// lista.imprimirListaCompletadas()
+
+	mapaTareas := make(map[string]*taskList)
+
+	mapaTareas["Nestor"] = lista
+
+	t5 := &task{
+		nombre:      "Completar mi curso de Scala",
+		descripcion: "Completar mi curso de Scala en platzi en esta semana",
+	}
+
+	t6 := &task{
+		nombre:      "Completar mi curso de Git",
+		descripcion: "Completar mi curso de Git en platzi en esta semana",
+	}
+
+	lista2 := &taskList{
+		tasks: []*task{
+			t5, t6,
+		},
+	}
+
+	mapaTareas["Ricardo"] = lista2
+	
+	mapaTareas["Nestor"].imprimirLista()
+	mapaTareas["Ricardo"].imprimirLista()
 
 	// for i := 0; i < len(lista.tasks); i++ {
 	// 	fmt.Println( "Index", i, "Nombre", lista.tasks[i].nombre )
